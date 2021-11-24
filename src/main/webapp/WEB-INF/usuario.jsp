@@ -28,7 +28,7 @@
 			<form:label path="codigoPostal">Código Postal:</form:label>
 			<form:input type="text" path="codigoPostal"/>
 			<br>
-			<form:label path="email">Código Postal:</form:label>
+			<form:label path="email">Email:</form:label>
 			<form:input type="text" path="email"/>
 			<br>
 			<input type="button" value="Limpiar">
@@ -57,17 +57,16 @@
                         <td>${usuario.getLimite()}</td>
                         <td>${usuario.getCodigoPostal()}</td>
                         <td>${usuario.getEmail()}</td>
-                        <td>Editar</td>
-                        <td>Eliminar</td>
                         <td>
+                        
                         	<form action="/usuario/editar" method="get">
-                        		<input type="hidden" value="${usuario.getId()}">
+                        		<input type="hidden" name="id" value="${usuario.getId()}">
                         		<input type="submit" value="Editar">
                         	</form>
                         </td>
                         <td>
                         	<form action="/usuario/eliminar" method="get">
-                        		<input type="hidden" value="${usuario.getId()}">
+                        		<input type="hidden" name="id" value="${usuario.getId()}">
                         		<input type="submit" value="Eliminar">
                         	</form>
                         </td>

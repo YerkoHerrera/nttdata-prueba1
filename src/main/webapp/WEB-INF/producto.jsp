@@ -47,17 +47,16 @@
 						<td>${producto.getcodProducto()}</td>
                         <td>${producto.getNombre()}</td>
                         <td>${producto.getTipo()}</td>
-                        <td>Editar</td>
-                        <td>Eliminar</td>
+
                         <td>
                         	<form action="/producto/editar" method="get">
-                        		<input type="hidden" value="${producto.getId()}">
+                        		<input type="hidden" name="id" value="${producto.getId()}">
                         		<input type="submit" value="Editar">
                         	</form>
                         </td>
                         <td>
                         	<form action="/producto/eliminar" method="get">
-                        		<input type="hidden" value="${producto.getId()}">
+                        		<input type="hidden" name="id" value="${producto.getId()}">
                         		<input type="submit" value="Eliminar">
                         	</form>
                         </td>

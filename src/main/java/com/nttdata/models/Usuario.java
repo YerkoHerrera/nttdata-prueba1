@@ -13,6 +13,7 @@ public class Usuario {
 	@Id //Clave primaria
 	@GeneratedValue(strategy= GenerationType.IDENTITY) //Auto incrementable
 	private Long id;
+	
 	private String nombre;
 	private String apellido;
 	private String limite;

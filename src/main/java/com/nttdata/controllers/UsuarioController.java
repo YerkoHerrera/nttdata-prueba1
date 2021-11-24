@@ -41,8 +41,9 @@ public class UsuarioController {
 			usuarioService.eliminarUsuarioObjeto(usuario);
 			
 		}
-		return "Usuario Eliminado";
+		return "redirect:/usuario";
 	}
+	
 	
 	@RequestMapping("/editar")
 	public String editarUsuario(@PathVariable("id") Long id, Model model) {
@@ -67,6 +68,7 @@ public class UsuarioController {
         }
     }
     
+    @RequestMapping("/login")
 	public String login(@Valid @ModelAttribute("usuario") Usuario usuario) {
 		
 		usuarioService.insertarUsuario(usuario);

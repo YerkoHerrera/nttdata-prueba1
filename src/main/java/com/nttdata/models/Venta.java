@@ -1,12 +1,17 @@
 package com.nttdata.models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity // Representación de la entidad modelo 
 @Table(name="ventas") //Nombre de la tabla en la bbdd
 public class Venta {
 	
+	@Id 
+	@GeneratedValue(strategy= GenerationType.IDENTITY) 
 	private Long id;
 	private Integer codVenta;
 	private String nombre;

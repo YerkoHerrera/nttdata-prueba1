@@ -47,17 +47,16 @@
 						<td>${venta.getcodVenta()}</td>
                         <td>${venta.getNombre()}</td>
                         <td>${venta.getFecha()}</td>
-                        <td>Editar</td>
-                        <td>Eliminar</td>
+
                         <td>
                         	<form action="/venta/editar" method="get">
-                        		<input type="hidden" value="${venta.getId()}">
+                        		<input type="hidden" name="id" value="${venta.getId()}">
                         		<input type="submit" value="Editar">
                         	</form>
                         </td>
                         <td>
                         	<form action="/venta/eliminar" method="get">
-                        		<input type="hidden" value="${venta.getId()}">
+                        		<input type="hidden" name="id" value="${venta.getId()}">
                         		<input type="submit" value="Eliminar">
                         	</form>
                         </td>
