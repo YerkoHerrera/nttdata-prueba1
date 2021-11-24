@@ -1,8 +1,19 @@
 package com.nttdata.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="productos")
 public class Producto {
 	
-	private Integer codigo;
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	private Long id;
+	private Integer codProducto;
 	private String nombre;
 	private String tipo;
 	
@@ -10,19 +21,28 @@ public class Producto {
 		super();
 	}
 
-	public Producto(Integer codigo, String nombre, String tipo) {
+	public Producto(Long id, Integer codProducto, String nombre, String tipo) {
 		super();
-		this.codigo = codigo;
+		this.id = id;
+		this.codProducto = codProducto;
 		this.nombre = nombre;
 		this.tipo = tipo;
 	}
 
-	public Integer getCodigo() {
-		return codigo;
+	public Long getId() {
+		return id;
 	}
 
-	public void setCodigo(Integer codigo) {
-		this.codigo = codigo;
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Integer getCodProducto() {
+		return codProducto;
+	}
+
+	public void setCodProducto(Integer codProducto) {
+		this.codProducto = codProducto;
 	}
 
 	public String getNombre() {
