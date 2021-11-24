@@ -60,7 +60,7 @@ public class UsuarioController {
     @RequestMapping(value="/update/{id}", method=RequestMethod.PUT)
     public String update(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult result) {
         if (result.hasErrors()) {
-            return "/usuario/editar.jsp";
+            return "/usuario/editarUsuario.jsp";
         } else {
         	usuarioService.updateUsuario(usuario);
             return "redirect:/usuario";
