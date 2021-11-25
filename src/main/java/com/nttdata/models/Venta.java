@@ -6,8 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity // Representación de la entidad modelo 
-@Table(name="ventas") //Nombre de la tabla en la bbdd
+@Entity 
+@Table(name="ventas") 
 public class Venta {
 	
 	@Id 

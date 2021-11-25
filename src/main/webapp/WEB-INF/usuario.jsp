@@ -31,7 +31,6 @@
 			<form:label path="email">Email:</form:label>
 			<form:input type="text" path="email"/>
 			<br>
-			<input type="button" value="Limpiar">
 			<input type="submit" value="Submit">
 
 		</form:form>
@@ -58,11 +57,7 @@
                         <td>${usuario.getCodigoPostal()}</td>
                         <td>${usuario.getEmail()}</td>
                         <td>
-                        
-                        	<form action="/usuario/editar" method="get">
-                        		<input type="hidden" name="id" value="${usuario.getId()}">
-                        		<input type="submit" value="Editar">
-                        	</form>
+                        	<a href="/usuario/${usuario.getId()}/editar" class="btn btn-primary" role="button" data-bs-toggle="button">Editar</a>
                         </td>
                         <td>
                         	<form action="/usuario/eliminar" method="get">

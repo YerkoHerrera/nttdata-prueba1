@@ -45,23 +45,25 @@ public class UsuarioController {
 	}
 	
 	
-	@RequestMapping("/editar")
+	@RequestMapping("/{id}/editar")
 	public String editarUsuario(@PathVariable("id") Long id, Model model) {
 		
 		Usuario usuario = usuarioService.buscarUsuario(id);
-		if(usuario != null) {
-			model.addAttribute("usuario", usuario);
-			return "/usuario/editar.jsp";
-			
+    	if(usuario !=null) {
+		       model.addAttribute("usuario", usuario);
+		       return "/editarUsuario.jsp";
 		}
+		
 		return "redirect:/usuario";
-	}
+    }
 	
     
     @RequestMapping(value="/update/{id}", method=RequestMethod.PUT)
     public String update(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult result) {
-        if (result.hasErrors()) {
-            return "/usuario/editarUsuario.jsp";
+    	System.out.println("Entro al update");
+    	if (result.hasErrors()) {
+        	
+            return "/editarUsuario.jsp";
         } else {
         	usuarioService.updateUsuario(usuario);
             return "redirect:/usuario";
@@ -72,7 +74,6 @@ public class UsuarioController {
 	public String login(@Valid @ModelAttribute("usuario") Usuario usuario) {
 		
 		usuarioService.insertarUsuario(usuario);
-		
 		return "redirect:/usuario";
 	}
 

@@ -15,7 +15,8 @@
 
 <body>
 	<div class="container-fluid">
-		<form:form method="post" action="/venta/editar" modelAttribute="venta">
+		<form:form method="post" action="/venta/update/${producto.id}" modelAttribute="venta">
+			<input type="hidden" name="_method" value="put">
 			<form:label path="codVenta">Codigo Venta:</form:label>
 			<form:input type="text" path="codVenta"/>
 			<br>
@@ -25,7 +26,6 @@
 			<form:label path="fecha">Fecha:</form:label>
 			<form:input type="text" path="fecha"/>
 			<br>
-			<input type="button" value="Limpiar">
 			<input type="submit" value="Submit">
 
 		</form:form>

@@ -44,15 +44,12 @@
 				<c:forEach items="${listaVentas}" var="venta">
 					<tr>
 						<th scope="row">${venta.getId()}</th>
-						<td>${venta.getcodVenta()}</td>
+						<td>${venta.getCodVenta()}</td>
                         <td>${venta.getNombre()}</td>
                         <td>${venta.getFecha()}</td>
 
                         <td>
-                        	<form action="/venta/editar" method="get">
-                        		<input type="hidden" name="id" value="${venta.getId()}">
-                        		<input type="submit" value="Editar">
-                        	</form>
+                        	<a href="/usuario/${venta.getId()}/editar" class="btn btn-primary" role="button" data-bs-toggle="button">Editar</a>
                         </td>
                         <td>
                         	<form action="/venta/eliminar" method="get">

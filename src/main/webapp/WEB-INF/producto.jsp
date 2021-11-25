@@ -25,7 +25,6 @@
 			<form:label path="tipo">Tipo:</form:label>
 			<form:input type="text" path="tipo"/>
 			<br>
-			<input type="button" value="Limpiar">
 			<input type="submit" value="Submit">
 
 		</form:form>
@@ -44,15 +43,12 @@
 				<c:forEach items="${listaProductos}" var="producto">
 					<tr>
 						<th scope="row">${producto.getId()}</th>
-						<td>${producto.getcodProducto()}</td>
+						<td>${producto.getCodProducto()}</td>
                         <td>${producto.getNombre()}</td>
                         <td>${producto.getTipo()}</td>
 
                         <td>
-                        	<form action="/producto/editar" method="get">
-                        		<input type="hidden" name="id" value="${producto.getId()}">
-                        		<input type="submit" value="Editar">
-                        	</form>
+                        	<a href="/producto/${producto.getId()}/editar" class="btn btn-primary" role="button" data-bs-toggle="button">Editar</a>
                         </td>
                         <td>
                         	<form action="/producto/eliminar" method="get">
