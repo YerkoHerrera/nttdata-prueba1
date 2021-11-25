@@ -70,6 +70,33 @@ public class UsuarioController {
         }
     }
     
+    public Boolean validarVacio(String palabra) {
+		if (palabra.isEmpty()) {
+			System.out.println("El nombre está en blanco");
+			return false;
+		}else {
+			return true;
+		}
+	}
+    
+    public Boolean validarLargo(String palabra, Integer largoMax, Integer limite) {
+		if(palabra.length() > limite && palabra.length() <= largoMax) {
+			return true;
+		}else{
+			System.out.println("El nombre está vacio o es muy largo");
+			return false;
+		}
+	}
+    
+    public Boolean validarIguales(String palabra, Integer largo) {
+    	if (palabra.length() == largo) {
+			return true;
+		} else {
+			System.out.println("El String es diferente al permitido");
+			return false;
+		}
+	}
+    
     @RequestMapping("/login")
 	public String login(@Valid @ModelAttribute("usuario") Usuario usuario) {
 		
