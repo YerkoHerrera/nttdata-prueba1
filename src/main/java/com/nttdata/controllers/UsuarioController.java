@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nttdata.models.Usuario;
+import com.nttdata.services.ProyectoService;
 import com.nttdata.services.UsuarioService;
 
 @Controller
@@ -21,12 +22,15 @@ public class UsuarioController {
 	
 	@Autowired //Inyección de dependencia entre services y luego repositories
 	UsuarioService usuarioService;
+	
+	@Autowired //Inyección de dependencia entre services y luego repositories
+	ProyectoService proyectoService;
 
 	//desplegar inicialmente el jsp
 	@RequestMapping("")
 	public String usuario(@ModelAttribute("usuario") Usuario usuario,
 			Model model) {
-		//model.addAttribute("usuario", new Usuario());
+		model.addAttribute("listaProyectos", proyectoService.obtenerListaProyectos());
 		model.addAttribute("listaUsuarios", usuarioService.obtenerListaUsuarios());
 		model.addAttribute("error", "si");
 		model.addAttribute("mensaje", "Error en el nombre");

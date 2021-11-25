@@ -14,6 +14,7 @@
 </head>
 
 <body>
+<jsp:include page="templates/navbar.jsp"/>
 	<div class="container-fluid">
 		<form:form method="post" action="/usuario/login" modelAttribute="usuario">
 			<form:label path="nombre">Nombre:</form:label>
@@ -31,7 +32,23 @@
 			<form:label path="email">Email:</form:label>
 			<form:input type="text" path="email"/>
 			<br>
-			<input type="submit" value="Submit">
+			<form:select path="proyecto">
+				<c:forEach items="${listaProyectos}" var="proyecto">
+					<form:option value="${proyecto.getId()}">
+						${proyecto.getNombre()}
+					</form:option>
+				</c:forEach>
+			</form:select>
+			<br>
+			<!--  <select class="form-select" name="proyecto">
+					<c:forEach items="${listaProyectos}" var="proyecto">
+						<c:if test="${proyecto.id == usuario.proyecto.id}">
+							option selected value="${proyecto.id}">${proyecto.nombre}</option>
+						</c:if>
+						<option value="${proyecto.id}">${proyecto.nombre}</option>
+					</c:forEach>
+					</select> -->
+			<input type="submit" value="Crear Usuario">
 
 		</form:form>
 		
@@ -43,7 +60,8 @@
 					<th scope="col">Apellido</th>
 					<th scope="col">Limite</th>
 					<th scope="col">Codigo Postal</th>
-					<th scope="col">email</th>
+					<th scope="col">Email</th>
+					<th scope="col">Proyecto</th>
 					<th scope="col-2">Acciones</th>
 				</tr>
 			</thead>
@@ -56,6 +74,7 @@
                         <td>${usuario.getLimite()}</td>
                         <td>${usuario.getCodigoPostal()}</td>
                         <td>${usuario.getEmail()}</td>
+                        <td>${usuario.getProyecto()}</td>
                         <td>
                         	<a href="/usuario/${usuario.getId()}/editar" class="btn btn-primary" role="button" data-bs-toggle="button">Editar</a>
                         </td>
